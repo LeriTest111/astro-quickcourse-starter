@@ -1,0 +1,36 @@
+---
+import "@quick-course-kit/local-release/styles/quick-course.css";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "A standalone Quick Course Starter prototype.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <main class="starter-course">
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  .starter-course {
+    inline-size: min(100% - 2rem, 70rem);
+    margin-inline: auto;
+    padding-block: 1.5rem 4rem;
+  }
+</style>
