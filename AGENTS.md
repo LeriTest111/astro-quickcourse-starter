@@ -5,15 +5,16 @@ This repository is a course project template. Build accessible courses from supp
 ## Before implementation
 
 - Inspect `src/config/course.ts`, supplied files in `course/storyboard/`, local media, `course/component-map.md`, and the pinned Kit manifest and guidance.
-- Update the component map before implementation, then keep it aligned with the course.
+- For new course construction or meaningful structural/content changes, update the component map before implementation, then keep it aligned with the course.
 - Confirm the intended scope and flag ambiguity early.
+- For initial course builds, produce the component map for human review before full implementation unless the task explicitly authorises implementation in the same pass.
 
 ## Source and content
 
 - Supplied course source is authoritative. You may structure it, format it, and make light UI-fit edits, but do not invent facts, policy, SME conclusions, answers, rationale, procedures, or client intent.
 - Use ordinary semantic content when it is clearest. Choose a governed Kit component only when it improves the learning purpose.
 - Interactive presentation can carry required learning content only when that content remains accessible, discoverable, keyboard-operable, and understandable.
-- When no appropriate Kit component exists, use ordinary markup or the closest approved pattern and report the gap. Do not create a near-duplicate component.
+- When no appropriate Kit component exists, use ordinary semantic markup or the closest governed Kit capability where appropriate, and report the Kit gap. Do not create a near-duplicate component.
 
 ## Boundaries
 
