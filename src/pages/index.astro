@@ -1,86 +1,42 @@
 ---
-// Temporary release-consumption demo. Replace with real course architecture later.
+import { course } from "../config/course";
 import CourseLayout from "../layouts/CourseLayout.astro";
-import MinimalHero from "@quick-course-kit/local-release/components/MinimalHero.astro";
-import TextLayout from "@quick-course-kit/local-release/components/TextLayout.astro";
-import TypeText from "@quick-course-kit/local-release/components/TypeText.astro";
-import ChoiceQuestion from "@quick-course-kit/local-release/components/ChoiceQuestion.astro";
-import Carousel from "@quick-course-kit/local-release/components/Carousel.astro";
-import VideoSection from "@quick-course-kit/local-release/components/VideoSection.astro";
-import kitManifest from "@quick-course-kit/local-release/manifest.json";
 ---
 
-<CourseLayout title="Starter consumption test">
-  <MinimalHero
-    headingId="starter-title"
-    title="Starter consumption test"
-    summary="This temporary page renders governed Quick Course Kit components from the pinned 0.1.0 release."
-    density="spacious"
-    actions={[{ href: "#knowledge-check", label: "Review" }]}
-  />
-
-  <TextLayout as="section" layout="reading-standard" spacing="spacious" class="starter-demo-section" aria-labelledby="typography-heading">
-    <TypeText as="h2" role="heading-lg" weight="bold" id="typography-heading">Production typography is available</TypeText>
-    <TypeText as="p" role="lead" tone="muted">This text is rendered with the Kit's released Typography System and learner-facing stylesheet, not a workbench stylesheet.</TypeText>
-  </TextLayout>
-
-  <section id="knowledge-check" class="starter-demo-section" aria-label="Choice Question release test">
-    <ChoiceQuestion
-      id="starter-choice-question"
-      title="Which dependency supplies the course components?"
-      prompt="Choose the release boundary used by this Starter prototype."
-      selectionMode="single"
-      submissionMode="instant"
-      correctFeedback={{ title: "Correct", body: "The Starter imports the pinned Kit package rather than copying components or linking to the workbench source." }}
-      incorrectFeedback={{ title: "Not quite", body: "The prototype only uses the generated local Kit package boundary." }}
-      options={[
-        { id: "kit-release", label: "The pinned generated Quick Course Kit release", isCorrect: true, feedback: "That keeps the course repository independent from the Kit workbench." },
-        { id: "kit-source", label: "A direct import from the Kit source folder", isCorrect: false, feedback: "Direct workbench imports would bypass the release boundary." },
-        { id: "workbench-page", label: "The Kit workbench page", isCorrect: false, feedback: "The workbench is not part of the course runtime." },
-      ]}
-    />
-  </section>
-
-  <section class="starter-demo-section" aria-label="Carousel release test">
-    <Carousel
-      id="starter-carousel"
-      label="Release-consumption checks"
-      heading="Carousel runtime test"
-      intro="This Embla-backed Carousel runs from the installed Kit package."
-      variant="content"
-      indicator="count-and-dots"
-      surfaceTreatment="varied-surfaces"
-      slides={[
-        { stepNumber: "01", title: "Install the pinned release", body: "The Starter depends on the exact local 0.1.0 package path." },
-        { stepNumber: "02", title: "Import public exports", body: "Course files import components, styles and manifest through the package contract." },
-        { stepNumber: "03", title: "Build independently", body: "No Kit development server or workbench route is required." },
-      ]}
-    />
-  </section>
-
-  <section class="starter-demo-section" aria-label="Video release test">
-    <VideoSection
-      id="starter-video"
-      heading="Local media test"
-      intro="This Starter-owned MP4 verifies the released video component and its production styles."
-      src="/media/starter-demo.mp4"
-      title="Starter test video"
-      caption="Temporary local media used only for the Kit release consumption proof."
-    />
-  </section>
-
-  <section class="starter-demo-section starter-demo-section--manifest" aria-labelledby="manifest-heading">
-    <TypeText as="h2" role="heading-md" weight="bold" id="manifest-heading">Release manifest test</TypeText>
-    <TypeText as="p" role="body" tone="muted">The package manifest resolves in this separate project and currently describes {kitManifest.components.length} governed systems for Kit version {kitManifest.kitVersion}.</TypeText>
+<CourseLayout>
+  <section class="course-placeholder" aria-labelledby="course-title">
+    <h1 id="course-title">{course.title}</h1>
+    <p>{course.description}</p>
+    <p class="course-placeholder__note">Course content will be generated here after storyboard mapping and human review.</p>
   </section>
 </CourseLayout>
 
 <style>
-  .starter-demo-section {
-    margin-block-start: 3rem;
+  .course-placeholder {
+    border-block: 1px solid #d8d4da;
+    max-inline-size: 46rem;
+    min-inline-size: 0;
+    padding-block: clamp(2.5rem, 8vw, 5rem);
   }
 
-  .starter-demo-section--manifest {
-    padding-block-end: 2rem;
+  h1 {
+    color: #1f1a22;
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    line-height: 1.1;
+    margin: 0;
+  }
+
+  p {
+    color: #4f4854;
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin: 1rem 0 0;
+    max-inline-size: 42rem;
+    overflow-wrap: anywhere;
+  }
+
+  .course-placeholder__note {
+    color: #716a75;
+    font-size: 1rem;
   }
 </style>
